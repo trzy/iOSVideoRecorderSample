@@ -92,7 +92,7 @@ actor VideoRecorder {
     func addMP3AudioClip(_ audioData: Data) async throws {
         let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".mp3")
         defer {
-            //try? FileManager.default.removeItem(at: tempURL)
+            try? FileManager.default.removeItem(at: tempURL)
         }
         try audioData.write(to: tempURL)
 
